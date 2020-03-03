@@ -20,11 +20,6 @@ class ChangeOperation extends Component {
         var color = this.state.clicked ? 'white' : 'green'; 
         this.setState({ bgColor: color , clicked: !this.state.clicked}, 
             () => this.props.addOperation(this.props.operation, this.state.clicked));
-        
-        
-
-    
-        
     
 
     };

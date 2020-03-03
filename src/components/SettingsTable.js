@@ -14,21 +14,7 @@ class SettingsTable extends Component {
         }
     }
 
-    addOperation = (operation, clicked) => {  
-        // console.log(operation);
-
-        // if newly clicked -> add to operation list; else, remove 
-        if(clicked){
-            this.state.typeOfEquation.push(operation);
-            console.log(this.state.typeOfEquation);
-        } else{
-            var filterArr = this.state.typeOfEquation.filter(e => e != operation);
-
-            this.setState({typeOfEquation: filterArr}, () => console.log(this.state.typeOfEquation));
-
-        }
-
-    };
+   
 
 
     // create rows in each table 
@@ -56,7 +42,7 @@ class SettingsTable extends Component {
 
                     <Table.Cell></Table.Cell>
                     
-                    <ChangeOperation operation={"Addition"} addOperation={this.addOperation}></ChangeOperation>
+                    <ChangeOperation operation={"Addition"} addOperation={this.props.addOperation}></ChangeOperation>
 
                 
                         <Table.Cell selectable>
@@ -65,21 +51,21 @@ class SettingsTable extends Component {
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell></Table.Cell>
-                        <ChangeOperation operation={'Subtraction'} addOperation={this.addOperation}></ChangeOperation>
+                        <ChangeOperation operation={'Subtraction'} addOperation={this.props.addOperation}></ChangeOperation>
                         <Table.Cell selectable>
                             <a href='#'>Edit</a>
                         </Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell></Table.Cell>
-                        <ChangeOperation operation={'Multiplication'} addOperation={this.addOperation}></ChangeOperation>
+                        <ChangeOperation operation={'Multiplication'} addOperation={this.props.addOperation}></ChangeOperation>
                         <Table.Cell selectable>
                             <a href='#'>Edit</a>
                         </Table.Cell>
                     </Table.Row>
                     <Table.Row warning>
                         <Table.Cell></Table.Cell>
-                        <ChangeOperation operation={'Division'} addOperation={this.addOperation}></ChangeOperation>
+                        <ChangeOperation operation={'Division'} addOperation={this.props.addOperation}></ChangeOperation>
                         <Table.Cell selectable warning>
                             <a href='#'>Requires change</a>
                         </Table.Cell>
