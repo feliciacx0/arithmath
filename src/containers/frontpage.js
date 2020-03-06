@@ -8,6 +8,11 @@ import { Redirect } from 'react-router-dom';
 
 var timeOptions = [
     {
+        key: '5',
+        text: "5 seconds",
+        value: '5'
+    },
+    {
         key: '30',
         text: "30 seconds",
         value: '30'
@@ -74,14 +79,14 @@ class Frontpage extends Component {
 
                 }
             });
-           
-            // return <Redirect to='/equation'  />
-                
-                
 
-    
-            
-            
+            // return <Redirect to='/equation'  />
+
+
+
+
+
+
         }
     }
 

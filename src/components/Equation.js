@@ -115,7 +115,10 @@ class Equation extends Component {
 
             // check if correct 
             if(this.state.userAnswer == this.state.answer){
-                console.log("correct");
+                // console.log("correct");
+
+                // increase number correct 
+                this.props.numCorrect();
 
                 // increase number correct & clear user answer
                 this.setState({numCorrect: this.state.numCorrect + 1, userAnswer: ''})

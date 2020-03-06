@@ -1,7 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-function Endpage() {
-    return <h1> Congrats! you've finished...</h1>
+
+class Endpage extends Component{
+
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return(
+
+            <div className="results">
+            <h1>Finished</h1>
+
+            <h1>Number Correct: {this.props.location.state && this.props.location.state.numCorrect} </h1>
+
+
+            </div>
+
+            
+
+        )
+    };
+
+
 }
+
+
 
 export default Endpage;
