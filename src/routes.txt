@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import App from './components/app/App';
 import Frontpage from './containers/Frontpage';
-import EquationPage from './containers/EquationPage';
+import Equation from './containers/Equation';
 import Endpage from './containers/Endpage';
 
 export default function Routes(){
@@ -11,7 +11,7 @@ export default function Routes(){
 
 
     <Router>
-    <h1> Welcome to Arithmath</h1>
+    <h1> Welcome</h1>
 
     <div className="routes">
       <u1 className="Frontpage">
@@ -28,7 +28,7 @@ export default function Routes(){
       
       <Switch>
         <Route exact path='/' component={Frontpage}></Route>
-        <Route exact path='/equation' component={EquationPage}></Route>
+        <Route exact path='/equation' component={Equation}></Route>
         <Route exact path='/endpage' component={Endpage}></Route>
       </Switch>
     </div>

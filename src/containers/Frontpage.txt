@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SettingsTable from '../components/SettingsTable';
 import DropdownText from '../components/Dropdown';
 import { Button } from 'semantic-ui-react';
-import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Redirect, Router, Route, Link, Switch, useHistory } from 'react-router-dom';
 
 
 
@@ -75,7 +75,7 @@ class Frontpage extends Component {
                 }
             });
            
-            // return <Redirect to='/equation'  />
+            // return <Redirect push to='/equation'  />
                 
                 
 
@@ -110,6 +110,13 @@ class Frontpage extends Component {
 
 
             </div>
+
+
+
+
+
+
+
 
 
 

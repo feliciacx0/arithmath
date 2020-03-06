@@ -9,14 +9,14 @@ class Timer extends Component {
 
     }
 
-    // componentDidMount() {
-    //     this.timerID = setInterval(() => this.tick(), 1000
-    //     );
-    // }
+    componentDidMount() {
+        this.timerID = setInterval(() => this.tick(), 1000
+        );
+    }
 
-    // componentWillUnmount() {
-    //     clearInterval(this.timerID);
-    // }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
 
     tick() {
         this.setState({
@@ -27,7 +27,7 @@ class Timer extends Component {
     render() {
         return (
             <div>
-                <h2> It is {this.props.date.toLocaleTimeString()}</h2>
+                <h2> Remaining Time: {this.state.date.toLocaleTimeString()}</h2>
             </div>
         )
     };
