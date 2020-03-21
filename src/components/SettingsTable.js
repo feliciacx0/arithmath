@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import ChangeOperation from '../components/ChangeOperation';
+import RangeSelection from '../components/RangeSelection';
+
 
 
 class SettingsTable extends Component {
@@ -14,12 +16,6 @@ class SettingsTable extends Component {
         }
     }
 
-   
-
-
-    // create rows in each table 
-    createRows = () => {
-    };
 
 
 
@@ -31,45 +27,35 @@ class SettingsTable extends Component {
                 <Table.Header>
                     <Table.Row>
                     
-                        <Table.HeaderCell>Enabled</Table.HeaderCell>
                         <Table.HeaderCell>Operation</Table.HeaderCell>
                         <Table.HeaderCell>Range</Table.HeaderCell>
+                        
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                    <Table.Row>
-
-                    <Table.Cell></Table.Cell>
                     
-                    <ChangeOperation operation={"Addition"} addOperation={this.props.addOperation}></ChangeOperation>
+                    
+                    <ChangeOperation operation={"Addition"} addOperation={this.props.addOperation} symbol={"+"} rangeChange={this.props.rangeChange}
+                    ></ChangeOperation>
 
-                
-                        <Table.Cell selectable>
-                            <a href='#'>Edit</a>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell></Table.Cell>
-                        <ChangeOperation operation={'Subtraction'} addOperation={this.props.addOperation}></ChangeOperation>
-                        <Table.Cell selectable>
-                            <a href='#'>Edit</a>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell></Table.Cell>
-                        <ChangeOperation operation={'Multiplication'} addOperation={this.props.addOperation}></ChangeOperation>
-                        <Table.Cell selectable>
-                            <a href='#'>Edit</a>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row warning>
-                        <Table.Cell></Table.Cell>
-                        <ChangeOperation operation={'Division'} addOperation={this.props.addOperation}></ChangeOperation>
-                        <Table.Cell selectable warning>
-                            <a href='#'>Requires change</a>
-                        </Table.Cell>
-                    </Table.Row>
+        
+                    
+                    
+                        <ChangeOperation operation={'Subtraction'} addOperation={this.props.addOperation} symbol={"-"} rangeChange={this.props.rangeChange}
+                        ></ChangeOperation>
+                        
+                    
+                        <ChangeOperation operation={'Multiplication'} addOperation={this.props.addOperation} symbol={"x"} rangeChange={this.props.rangeChange}
+                         ></ChangeOperation>
+                        
+                   
+
+                   
+                        <ChangeOperation operation={'Division'} addOperation={this.props.addOperation} symbol={"/"} rangeChange={this.props.rangeChange}
+                        ></ChangeOperation>
+                    
+                    
             
                 </Table.Body>
             </Table>

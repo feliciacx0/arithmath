@@ -38,15 +38,19 @@ class EquationPage extends Component {
         
         // keep track of number of times generate equation
 
-        var operationArr = this.props.location.state.equations;
+        var operationObj = this.props.location.state.equations;
+        var operationArr = Object.keys(operationObj);
+
+        // to do: fix this, not calling all possible operations 
         var randomOperation = operationArr[Math.floor(Math.random() * operationArr.length)];
 
-        console.log("called generate equation");
-        console.log({randomOperation});
-        // console.log(this.props.location.state.equations);
 
 
-        return(<Equation operation={randomOperation} numCorrect={this.addCorrect}></Equation>)
+       return(<Equation operationObj={operationObj} operation={randomOperation}  numCorrect={this.addCorrect} 
+       
+        ></Equation>)
+      
+
 
 
 

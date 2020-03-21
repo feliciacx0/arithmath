@@ -1,6 +1,10 @@
 
 import React, { Component } from 'react';
 
+// TODO:
+// create componentDidUpdate and call setState
+// in the render function: const equation = generateEquation()
+
 
 const operationDictionary = {
     'Addition': '+',
@@ -19,15 +23,15 @@ class Equation extends Component {
             answer: '',
             firstNum: '',
             secondNum: '',
-            operation: 'Addition',
+            operation: '',
             userAnswer: '',
             display: true,
             numCorrect: 0,
+            equationGenerated: false,
         }
 
         this.randomNumber.bind(this);
         this.generateEquation.bind(this);
-        this.onDisplay.bind(this);
         this.handleChange.bind(this);
 
     }
@@ -54,7 +58,22 @@ class Equation extends Component {
     };
 
 
-    generateEquation = (min1, max1, decimalPlaces1, min2, max2, decimalPlaces2, operation) => {
+    generateEquation = (decimalPlaces1, decimalPlaces2) => {
+
+        let operationArr = Object.keys(this.props.operationObj);
+
+        
+        let randomOperation = operationArr[Math.floor(Math.random() * operationArr.length)];
+
+        // console.log("called generate equation");
+        console.log(randomOperation);
+
+        let min1=this.props.operationObj[randomOperation]["num1"]
+        let max1=this.props.operationObj[randomOperation]["num2"]
+        let min2=this.props.operationObj[randomOperation]["num3"]
+        let max2=this.props.operationObj[randomOperation]["num4"]
+
+
         const firstNum = this.randomNumber(min1, max1, decimalPlaces1);
         const secondNum = this.randomNumber(min2, max2, decimalPlaces2);
         let ans = 0;
@@ -62,7 +81,7 @@ class Equation extends Component {
         // debug this -> doesn't truncate firstNum and secondNum completely 
 
         // depending on operation -> calculate answer 
-        switch (operation) {
+        switch (randomOperation) {
             case 'Addition':
                 ans = firstNum + secondNum;
                 break;
@@ -84,28 +103,23 @@ class Equation extends Component {
         this.setState({
             answer: ans,
             firstNum,
-            secondNum
+            secondNum,
+            operation: randomOperation
+
         });
 
 
     };
 
-    // display equation 
-    onDisplay = () => {
-        if (this.state.display) {
-            this.generateEquation(1, 5, 0, 1, 100, 0, this.props.randomOperation);
-
-        }
-
-
-    };
+ 
 
     // after all elements of page are rendered correctly -> this is called
     // if you need to load data -> do it here 
     componentDidMount() {
-        this.onDisplay();
+        this.generateEquation(0,0);
     }
 
+ 
 
     // when user inputs answer -> automatically updates & checks if correct 
     handleChange = (event) => {
@@ -124,7 +138,7 @@ class Equation extends Component {
                 this.setState({numCorrect: this.state.numCorrect + 1, userAnswer: ''})
 
                 // generate next equation 
-                this.generateEquation(1,10,0,1,10,0,"Addition");
+                this.generateEquation(0, 0);
 
 
                 
