@@ -58,7 +58,9 @@ class Equation extends Component {
     };
 
 
+    // TODO: want to have answers as integers, no negative numbers
     generateEquation = (decimalPlaces1, decimalPlaces2) => {
+        
 
         let operationArr = Object.keys(this.props.operationObj);
 
