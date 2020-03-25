@@ -6,6 +6,7 @@ import ChangeOperation from '../components/ChangeOperation';
 import RangeSelection from '../components/RangeSelection';
 
 
+// TODO: add design & support for decimals (can specify num of decimal places) and percentages (yes/no)
 
 class SettingsTable extends Component {
 
